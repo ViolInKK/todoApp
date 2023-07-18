@@ -55,26 +55,29 @@ function TodoItem(props: { todo: Todo }) {
     return (
         <li>
             {editingTodoId === todo.id ? (
-            <div>
-                <Input 
+            <div className="todoItem-container editing">
+                <Input
+                    className="todoItem-editInput" 
                     ref={editInputRef}
                     type="text"
                     value={editingTodoText}
                     onChange={e => setEditingTodoText(e.target.value)} 
                     />
-                    <button onClick={() => handleUpdate(todo.id)}>Update</button>
+                    <button 
+                    className="todoItem-editButton"
+                    onClick={() => handleUpdate(todo.id)}>Update</button>
 
-            </div>):(<div>
-                <span>
+            </div>):(<div className={todo.status ? "todoItem-container done":"todoItem-container"}>
+                <span style={{textDecoration: todo.status ? "line-through": "none"}}>
                     {todo.text}
                 </span>
-                <div>
-                    <button onClick={() => handleStatusUpdate(todo.id)}>
+                <div className="todoItem-buttonsContainer">
+                    <button className="updateButton" onClick={() => handleStatusUpdate(todo.id)}>
                         {todo.status === false ? (<span>Mark Completed</span>):(<span>Mark Undone</span>)}
                     </button>
                     <div>
-                        <button onClick={() => handleEdit(todo.id, todo.text)}>Edit</button>
-                        <button onClick={() => handleDelete(todo.id)}>Delete</button>
+                        <button className="editButton" onClick={() => handleEdit(todo.id, todo.text)}>Edit</button>
+                        <button className="deleteButton" onClick={() => handleDelete(todo.id)}>Delete</button>
                     </div>
                 </div>
             </div>)}

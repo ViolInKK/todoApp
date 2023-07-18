@@ -28,8 +28,9 @@ function AddTodo() {
 
     return (
       <form onSubmit={handleSubmission}>
-        <div>
+        <div className="addTodo-container">
           <Input
+            className="addTodo-input"
             ref={inputRef}
             value={input}
             onChange={e => setInput(e.target.value)}
@@ -39,7 +40,7 @@ function AddTodo() {
           <button
             type="submit"
             >
-            Submit
+            Add Todo
           </button>
         </div>
       </form>

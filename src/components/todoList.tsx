@@ -7,7 +7,7 @@ function todoList(){
 
     if(!todos.length){
         return (
-            <div>
+            <div className="noTodo-container">
                 <h1>
                     You have nothing to do
                 </h1>
