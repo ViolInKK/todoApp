@@ -1,5 +1,5 @@
 import { nanoid } from 'nanoid'
-import { createContext, useState } from 'react'
+import { createContext } from 'react'
 import { useLocalStorage } from 'usehooks-ts'
 
 interface TodoContextProps{
